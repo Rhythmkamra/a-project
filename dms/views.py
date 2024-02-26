@@ -4,3 +4,5 @@ def document_list(request):
     documents = Document.objects.all()
     return render(request, 'index.html', {'documents': documents})
 # Create your views here.
+def home(request):
+    return render(request,'dms/home.html')
