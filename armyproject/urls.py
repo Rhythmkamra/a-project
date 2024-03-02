@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from dms import views
+from django_workflow_engine import workflow_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
