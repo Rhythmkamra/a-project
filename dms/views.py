@@ -1,6 +1,32 @@
 from django.shortcuts import render,redirect
 from .models import Document
 from .forms import Signup
+from django.views.generic import CreateView, UpdateView, DetailView
+
+
+class DraftDocumentView(CreateView):
+    model = Document
+    fields = ['title', 'file', 'remarks']
+    template_name = 'draft_document.html'
+    success_url = '/review/'
+
+    def form_valid(self, form):
+        form.instance.workflow_state = 'draft'  # Update workflow state
+        return super().form_valid(form)
+
+class ReviewDocumentView(DetailView):
+    model = Document
+    template_name = 'review_document.html'
+
+class ApproveDocumentView(UpdateView):
+    model = Document
+    fields = ['remarks']
+    template_name = 'approve_document.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.instance.workflow_state = 'approved'  # Update workflow state
+        return super().form_valid(form)
 
 def document_list(request):
     documents = Document.objects.all()
