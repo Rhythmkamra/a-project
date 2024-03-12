@@ -21,10 +21,10 @@ from django_workflow_engine import workflow_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.create_message),
-    path('signup',views.sign_up),
+    path('', views.home,name ='home'),
     path('login',views.login),
     path('dashboard',views.dashboard),
+
    
 
 ]
