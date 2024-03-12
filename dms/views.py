@@ -11,14 +11,10 @@ def home(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
-            # You can add further processing here if needed
-        else:
-            # If the form is not valid, it will render with the entered data and error messages
-            return render(request, 'home.html', {'form': form})
+            
     else:
         form = MessageForm()
-    return render(request, 'home.html', {'form': form})
-
+        return render(request, 'home.html',{'form': form})
 def dashboard(request):
     return render(request,'dms/dashboard.html')
 
