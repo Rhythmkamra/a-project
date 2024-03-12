@@ -11,5 +11,16 @@ class Document(models.Model):
 
     def __str__(self):
         return self.title
+    
+from django.db import models
+
+class Message(models.Model):
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    remarks = models.FileField(upload_to='remarks/')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.subject    
 
 # Create your models here.

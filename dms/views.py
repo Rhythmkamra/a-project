@@ -2,7 +2,17 @@ from django.shortcuts import render,redirect
 from .models import Document
 from .forms import Signup
 from django.views.generic import CreateView, UpdateView, DetailView
+from .forms import MessageForm
 
+def create_message(request):
+    if request.method == 'POST':
+        form = MessageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = MessageForm()
+    return render(request, 'home.html', {'form': form})
 
 class DraftDocumentView(CreateView):
     model = Document
@@ -32,8 +42,7 @@ def document_list(request):
     documents = Document.objects.all()
     return render(request, 'index.html', {'documents': documents})
 # Create your views here.
-def home(request):
-    return render(request,'dms/home.html')
+
 
 
 def sign_up(request):
@@ -56,5 +65,4 @@ def login(request):
     return render(request,'dms/login.html')
 
 
-def about(request):
-    return render(request,'dms/about.html')
+
