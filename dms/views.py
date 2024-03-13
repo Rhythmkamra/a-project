@@ -11,10 +11,12 @@ def home(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
-            
+            # Optionally, redirect to another page after successful form submission
+            # return redirect('success_page')
     else:
         form = MessageForm()
-        return render(request, 'home.html',{'form': form})
+    
+    return render(request, 'dms/home.html', {'form': form})
 def dashboard(request):
     return render(request,'dms/dashboard.html')
 
