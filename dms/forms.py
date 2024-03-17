@@ -17,7 +17,7 @@ class Signup(UserCreationForm):
 class MessageForm(forms.ModelForm):
     class Meta:
         model = Message
-        fields = ('subject', 'message', 'remarks')
+        fields = ('subject', 'message',)
         widgets = {
             'message': forms.Textarea(attrs={'rows':4}),
         }
