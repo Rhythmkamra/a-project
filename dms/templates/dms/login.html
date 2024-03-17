@@ -1,7 +1,14 @@
 {% extends 'dms/base.html' %}
 {% load static %}
 {% block content %}
-
-<h1>home.hmtl</h1>
-
+<form method="post">
+    {% csrf_token %}
+    <br>
+    {{ form.username.label_tag }}
+    {{ form.username }}
+    <br>
+    {{ form.password.label_tag }}
+    {{ form.password }}
+    <button type="submit">Login</button>
+</form>
 {% endblock content %}
