@@ -1,18 +1,1 @@
-edms
-document management system
-
-
-basic concepts
-1.the project folder and app folder are made on the same level
-2. include the app in the project folder in settings.py file.
-3. create templates in way = app/templates/app 
-4. static folder also in the same way for the css and js files
-5 . create model for the table in the database.
-6 create a frontend view for the model .
-7. load the model in the views.py file for the same.
-8. load the views file for the url in the project folder
-9.create url for each view
-10.use python3 manage.py makemigrations for doing the changes
-11 use python3 manage.py migrate to apply the changes.
-12.note the home page url is this "" do not include any space here
-13 register the models in admin.py so that they are visible on the admin panel
+<html> <body> <h1>Basic Concepts of an EDMS</h1> <ol> <li><strong>Project and App Folders:</strong> The project folder and app folder are created on the same level.</li> <li><strong>Include App in Project:</strong> The app is included in the project folder in the <code>settings.py</code> file.</li> <li><strong>Templates:</strong> Templates are created in the following way: <code>app/templates/app</code></li> <li><strong>Static Files:</strong> The static folder is also created in the same way for CSS and JS files.</li> <li><strong>Create Model:</strong> A model is created for the table in the database.</li> <li><strong>Frontend View:</strong> A frontend view is created for the model.</li> <li><strong>Load Model:</strong> The model is loaded in the <code>views.py</code> file for the same.</li> <li><strong>Load Views:</strong> The views file is loaded for the URL in the project folder.</li> <li><strong>Create URL:</strong> A URL is created for each view.</li> <li><strong>Makemigrations:</strong> <code>python3 manage.py makemigrations</code> is used for making the changes.</li> <li><strong>Migrate:</strong> <code>python3 manage.py migrate</code> is used to apply the changes.</li> <li><strong>Home Page URL:</strong> Note that the home page URL is this: <code>"/"</code> (no space)</li> <li><strong>Register Models:</strong> Models are registered in <code>admin.py</code> so that they are visible on the admin panel.</li> </ol> </body> </html>
