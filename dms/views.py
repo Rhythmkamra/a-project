@@ -1,6 +1,4 @@
 from django.shortcuts import render,redirect,HttpResponse
-from .models import Document
-from .forms import Signup
 from django.views.generic import CreateView, UpdateView, DetailView
 from .forms import MessageForm
 
