@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from dms import views
 from django_workflow_engine import workflow_urls
 
@@ -23,8 +23,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home,name ='home'),
     path('dashboard',views.dashboard),
+
     path('login',views.login),
     path('signup',views.signup)
+    path("__debug__/", include("debug_toolbar.urls")),
+    path("try",views.Try),
+   
+
 ]
 
 

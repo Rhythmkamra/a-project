@@ -16,15 +16,14 @@ django.setup()
 from django.db import models
 # from .workflows import message_workflow
 
-class Document(models.Model):
-    title = models.CharField(max_length=255)
-    file = models.FileField(upload_to='documents/')
-    remarks = models.TextField(blank=True)
+
 
 
     def __str__(self):
         return self.title
 
+
+    
 from django.db import models
 
 class Message(models.Model):

@@ -1,23 +1,40 @@
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from forms import SignupForm, MessageForm, LoginForm
-from .models import Document
+
+
+from django.shortcuts import render,redirect,HttpResponse
+from django.views.generic import CreateView, UpdateView, DetailView
+from .forms import MessageForm
+
+
+
 
 def home(request):
     if request.method == 'POST':
         form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
+
             return redirect('home')  # Redirect after successful form submission
     else:
         form = MessageForm()
     return render(request, 'dms/home.html', {'form': form})
 
+            # save method pushes data into the backend 
+            # Optionally, redirect to another page after successful form submission
+            # return redirect('success_page')
+    else:
+        form = MessageForm()
+    
+    return render(request, 'dms/home.html', {'form': form})
 def dashboard(request):
-    # Placeholder logic for dashboard view
-    return render(request, 'dms/dashboard.html')
+    return render(request,'dms/dashboard.html')
+
 
 def login(request):
+
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -37,6 +54,12 @@ def login(request):
 def logout(request):
     auth_logout(request)
     return redirect('home')  # Redirect to home page after logout
+
+    return render(request,'dms/login.html')
+
+def Try(request):
+    return HttpResponse("hi")
+
 
 def signup(request):
     if request.method == 'POST':

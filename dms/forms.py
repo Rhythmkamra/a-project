@@ -1,6 +1,7 @@
 import os
 from django import forms
 
+
 # Set up Django environment
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "armyproject.settings")
 import django
@@ -14,7 +15,10 @@ class Signup(UserCreationForm):
  class Meta:
   model = User
   fields = ['username','first_name','last_name','email']
-  labels ={'firs_name':'First_name','last_name':'Last_name','email':'Email'}
+
+from .models import Message
+
+
 
 class Login(UserCreationForm):
  username = forms.CharField(label ='Username',widget=forms.TextInput)
@@ -24,7 +28,7 @@ class Login(UserCreationForm):
 class MessageForm(forms.ModelForm):
     class Meta:
         model = Message
-        fields = ('subject', 'message', 'remarks')
+        fields = ('subject', 'message',)
         widgets = {
             'message': forms.Textarea(attrs={'rows':4}),
         }

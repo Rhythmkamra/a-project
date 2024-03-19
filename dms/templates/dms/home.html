@@ -1,10 +1,14 @@
 {% extends 'dms/base.html' %}
-{% load static %}
 
 {% block content %}
-<form method="post">
+<form method="post" >
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_table }}
     <button type="submit">Submit</button>
 </form>
 {% endblock %}
+
+
+
+{% endblock content %}
+
