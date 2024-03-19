@@ -1,8 +1,28 @@
 {% extends 'dms/base.html' %}
 {% load static %}
 {% block content %}
-<div class="col-sm-10">
-     <h3>Sign-up page</h3>
-</div>
+<form method="post">
+    {% csrf_token %}
+    <br>
+    <br>
+    {{ form.username.label_tag }}
+    {{ form.username }}
+    <br>
+    {{ form.first_name.label_tag }}
+    {{ form.first_name }}
+    <br>
+    {{ form.last_name.label_tag }}
+    {{ form.last_name }}
+    <br>
+    {{ form.email.label_tag }}
+    {{ form.email }}
+    <br>
+    {{ form.password1.label_tag }}
+    {{ form.password1 }}
+    <br>
+    {{ form.password2.label_tag }}
+    {{ form.password2 }}
+    <button type="submit">Submit</button>
+</form>
 
 {% endblock content %}
